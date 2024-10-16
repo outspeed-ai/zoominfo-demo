@@ -3,7 +3,6 @@ import { Mic, MicOff } from "lucide-react";
 import { MediaAction } from "./push-to-talk";
 import { DisconnectAction } from "./disconnect-action";
 import { DataChannel } from "@outspeed/core";
-import React from "react";
 import { RealtimeAudio } from "@outspeed/react";
 import { AudioVisualizerContainer } from "./audio-visualzier-container";
 import { VideContainer } from "./video-container";

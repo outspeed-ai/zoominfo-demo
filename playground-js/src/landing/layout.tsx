@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import {
   Outlet,
   useLoaderData,
@@ -6,8 +5,6 @@ import {
   useNavigate,
 } from "react-router-dom";
 
-import { buttonVariants } from "../components/button";
-import { FileIcon, Github } from "lucide-react";
 import { TAppRouteLocationState, TLayoutOutletContext } from "./type";
 import React from "react";
 import { TRealtimeConfig } from "@outspeed/core";

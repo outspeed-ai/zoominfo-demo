@@ -5,19 +5,11 @@ import {
   BASE_ROUTE,
   HUMAN_AVATAR_APP_ROUTE,
   HUMAN_AVATAR_TAKE_INPUT_ROUTE,
-  VOICE_BOT_APP_ROUTE,
-  VOICE_BOT_TAKE_INPUT_ROUTE,
   THANK_YOU_ROUTE,
-  SPORTS_COMMENTATOR_APP_ROUTE,
-  SPORTS_COMMENTATOR_TAKE_INPUT_ROUTE,
 } from "./constants/routes";
 import { HumanAvatarTakeInput } from "./landing/HumanAvatarTakeInput";
-import { VoiceBotTakeInput } from "./landing/VoiceBotTakeInput";
-import { SportsCommentatorTakeInput } from "./landing/SportsCommentatorTakeInput";
 import { RealtimeAppLayout } from "./realtime-app/layout";
-import { VoiceBotRealtimeApp } from "./realtime-app/voice-bot";
 import { HumanAvatarRealtimeApp } from "./realtime-app/human-avatar";
-import { SportsCommentatorRealtimeApp } from "./realtime-app/sports-commentator";
 import { ThankYouScreen } from "./components/thank-you";
 import { SomethingWentWrong } from "./components/something-went-wrong";
 import { PageNotFound } from "./components/page-not-found";
