@@ -29,7 +29,7 @@ function App() {
       <div className="widget-container">
         <iframe
           ref={ref}
-          src="http://localhost:5173/?functionURL=https://us0-dev.outspeed.com/run/333fede65db918130ca947074ddb3a43"
+          src="http://localhost:5173"
           allow="microphone;camera"
         />
       </div>
