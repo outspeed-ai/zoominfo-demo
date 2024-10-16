@@ -32,11 +32,7 @@ export function HumanAvatarLayout(props: THumanAvatarLayoutProps) {
       <div className="flex flex-1 justify-center items-center p-4">
         <div className="h-full max-h-96 w-full max-w-96">
           {remoteTrack && (
-            <VideContainer
-              track={remoteTrack}
-              label="Outspeed"
-              hasControls={{ audio: remoteAudioTrack }}
-            />
+            <VideContainer track={remoteTrack} label="AI Agent" />
           )}
           {!remoteTrack && (
             <>
