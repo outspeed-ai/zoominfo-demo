@@ -8,7 +8,7 @@ import React from "react";
 import { RealtimeAudio } from "@outspeed/react";
 import { AudioVisualizerContainer } from "./audio-visualzier-container";
 
-export type TMeetingLayoutProps = {
+export type THumanAvatarLayoutProps = {
   remoteTrack: Track | null;
   remoteAudioTrack: Track | null;
   localAudioTrack: Track | null;
@@ -17,7 +17,7 @@ export type TMeetingLayoutProps = {
   title: string;
 };
 
-export function MeetingLayout(props: TMeetingLayoutProps) {
+export function HumanAvatarLayout(props: THumanAvatarLayoutProps) {
   const {
     localAudioTrack,
     remoteAudioTrack,

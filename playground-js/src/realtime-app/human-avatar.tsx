@@ -2,7 +2,7 @@ import React from "react";
 import { useWebRTC, useRealtimeToast } from "@outspeed/react";
 import { Loader2 } from "lucide-react";
 import { Button } from "../components/button";
-import { MeetingLayout } from "../components/meeting-layout";
+import { HumanAvatarLayout } from "../components/human-avatar-layout";
 import { TRealtimeAppContext } from "./types";
 import { useOutletContext } from "react-router-dom";
 import { ConsoleLogger } from "@outspeed/core";
@@ -88,7 +88,7 @@ export function HumanAvatarRealtimeApp() {
 
   return (
     <div className="h-full flex flex-1">
-      <MeetingLayout
+      <HumanAvatarLayout
         title="Human Avatar"
         onCallEndClick={handleDisconnect}
         remoteTrack={getRemoteVideoTrack()}
