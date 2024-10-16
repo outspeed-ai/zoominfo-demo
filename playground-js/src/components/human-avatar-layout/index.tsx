@@ -7,6 +7,8 @@ import { DataChannel } from "@outspeed/core";
 import React from "react";
 import { RealtimeAudio } from "@outspeed/react";
 import { AudioVisualizerContainer } from "./audio-visualzier-container";
+import { Avatar } from "./Avatar";
+import { Canvas } from "@react-three/fiber";
 
 export type THumanAvatarLayoutProps = {
   remoteTrack: Track | null;
@@ -33,12 +35,20 @@ export function HumanAvatarLayout(props: THumanAvatarLayoutProps) {
       {/* Video section */}
       <div className="flex flex-1 justify-center items-center p-4">
         <div className="h-full max-h-96 w-full max-w-96">
-          <AudioVisualizerContainer
+          {/* <AudioVisualizerContainer
             track={remoteAudioTrack}
             label="Outspeed"
             hasControls
             threshold={120}
-          />
+          /> */}
+          <Canvas
+            className="border rounded-md"
+            style={{ pointerEvents: "none", height: "100%", width: "100%" }}
+            shadows
+            camera={{ position: [0, 0, 0], fov: 25 }}
+          >
+            <Avatar isLoading={false} />
+          </Canvas>
         </div>
       </div>
       <RealtimeAudio track={remoteAudioTrack} />
