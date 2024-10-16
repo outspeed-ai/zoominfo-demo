@@ -102,7 +102,7 @@ export function MediaAction(props: TMediaActionProps) {
 
   return (
     <Button
-      className="rounded-full w-16 h-16"
+      className={"rounded-full w-16 h-16" + (!isEnabled ? " bg-muted" : "")}
       variant="outline"
       size="icon"
       onClick={isEnabled ? handleDisableMic : handleEnableMic}

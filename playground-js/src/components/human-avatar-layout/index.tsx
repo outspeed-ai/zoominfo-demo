@@ -1,7 +1,6 @@
 import { Track } from "@outspeed/core";
 import { Mic, MicOff } from "lucide-react";
 import { MediaAction } from "./push-to-talk";
-import { ChatAction } from "./chat-action";
 import { DisconnectAction } from "./disconnect-action";
 import { DataChannel } from "@outspeed/core";
 import React from "react";
@@ -26,8 +25,6 @@ export function HumanAvatarLayout(props: THumanAvatarLayoutProps) {
     title,
   } = props;
 
-  const [isChatOpened, setIsChatOpened] = React.useState(false);
-
   return (
     <div className="flex flex-col flex-1 relative">
       {/* Video section */}
@@ -46,7 +43,7 @@ export function HumanAvatarLayout(props: THumanAvatarLayoutProps) {
       {/* Call Section */}
       <div className="pb-4 flex">
         <div className="flex flex-1 p-4 rounded-md">
-          <div className="flex flex-1 space-x-4 justify-center">
+          <div className="flex flex-1 space-x-4 justify-between items-center">
             <DisconnectAction onClick={onCallEndClick} />
             <MediaAction
               track={localAudioTrack}
@@ -54,10 +51,9 @@ export function HumanAvatarLayout(props: THumanAvatarLayoutProps) {
               Off={MicOff}
               dataChannel={dataChannel}
             />
-            <ChatAction
-              isEnabled={isChatOpened}
-              setIsEnabled={setIsChatOpened}
-            />
+            <div className="invisible">
+              <DisconnectAction onClick={onCallEndClick} />
+            </div>
           </div>
           <div className="flex-1 justify-end items-center hidden sm:flex">
             <span className="font-bold text-muted">{title}</span>
