@@ -9,12 +9,12 @@ export function DisconnectAction(props: TDisconnectActionProps) {
   const { onClick } = props;
   return (
     <Button
-      className="rounded-full w-12 h-12"
+      className="rounded-full w-16 h-16"
       variant="destructive"
       size="icon"
       onClick={onClick}
     >
-      <PhoneOff className="h-6 w-6" />
+      <PhoneOff className="h-8 w-8" />
     </Button>
   );
 }
