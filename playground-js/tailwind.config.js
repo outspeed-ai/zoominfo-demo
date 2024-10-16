@@ -5,7 +5,7 @@ module.exports = {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
     // Need to process realtime-react components too.
-    "node_modules/@outspeed/react/**/*.tsx",
+    "node_modules/@outspeed/react/**/*.{js,mjs}",
   ],
   prefix: "",
   theme: {
