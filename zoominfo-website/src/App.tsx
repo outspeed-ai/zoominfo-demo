@@ -10,10 +10,7 @@ function App() {
         <iframe src="/zoom.htm" />
       </div>
       <div className="widget-container">
-        <iframe
-          src="http://localhost:5173?functionURL=https://us0-dev.outspeed.com/run/333fede65db918130ca947074ddb3a43"
-          allow="microphone;camera"
-        />
+        <iframe src="http://localhost:5173" allow="microphone;camera" />
       </div>
     </div>
   );
