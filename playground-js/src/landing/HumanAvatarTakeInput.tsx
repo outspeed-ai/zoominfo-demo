@@ -15,9 +15,8 @@ export function HumanAvatarTakeInput() {
   const [videoDeviceId, setVideoDeviceId] = React.useState("");
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const functionURL =
-    queryParams.get("functionURL") ||
-    "https://us0-dev.outspeed.com/run/333fede65db918130ca947074ddb3a43";
+  const functionURL = queryParams.get("functionURL") || "http://localhost:8080";
+
   const [isMediaMissing, setIsMediaMissing] = React.useState(false);
 
   function handleOnMediaInputChange(kind: "audio" | "video", value: string) {
@@ -58,7 +57,7 @@ export function HumanAvatarTakeInput() {
   }
 
   return (
-    <div className="space-y-6 max-w-lg relative z-10 flex flex-col">
+    <div className="space-y-6 max-w-lg relative z-10 flex flex-col overflow-hidden">
       <div className="font-bold text-2xl mb-8 md:text-3xl">Human Avatar</div>
       <RealtimeAudioInput
         isError={isMediaMissing}

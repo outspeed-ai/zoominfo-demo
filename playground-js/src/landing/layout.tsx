@@ -55,7 +55,7 @@ export function LandingLayout() {
   }
 
   return (
-    <div className="p-4 h-screen w-screen flex justify-center">
+    <div className="p-2 h-screen w-screen flex justify-center">
       <Outlet
         context={{ onSubmit: handleOnSubmit } satisfies TLayoutOutletContext}
       />

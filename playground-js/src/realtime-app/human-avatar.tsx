@@ -51,8 +51,10 @@ export function HumanAvatarRealtimeApp() {
 
   if (connectionStatus === "Connecting") {
     return (
-      <div className="h-full flex flex-1 justify-center items-center">
+      <div className="h-full flex flex-1 justify-center items-center flex-col">
         <Loader2 size={48} className="animate-spin" />
+        <br />
+        Connecting
       </div>
     );
   }
@@ -86,16 +88,14 @@ export function HumanAvatarRealtimeApp() {
 
   return (
     <div className="h-full flex flex-1">
-      <div className="flex-1 flex">
-        <MeetingLayout
-          title="Human Avatar"
-          onCallEndClick={handleDisconnect}
-          remoteTrack={getRemoteVideoTrack()}
-          localAudioTrack={getLocalAudioTrack()}
-          remoteAudioTrack={getRemoteAudioTrack()}
-          dataChannel={dataChannel}
-        />
-      </div>
+      <MeetingLayout
+        title="Human Avatar"
+        onCallEndClick={handleDisconnect}
+        remoteTrack={getRemoteVideoTrack()}
+        localAudioTrack={getLocalAudioTrack()}
+        remoteAudioTrack={getRemoteAudioTrack()}
+        dataChannel={dataChannel}
+      />
     </div>
   );
 }
