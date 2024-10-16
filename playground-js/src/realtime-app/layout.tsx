@@ -46,24 +46,14 @@ export function RealtimeAppLayout() {
   return (
     <div className="flex justify-center h-dvh w-dvw">
       <RealtimeToast />
-      <div className="flex flex-1 max-w-[1344px] p-4">
-        <div className="flex-1 flex flex-col">
-          {/* Logo */}
-          <div className="mt-10 flex justify-start">
-            <a href="https://outspeed.com">
-              <img src="/outspeed.svg" className="h-10" />
-            </a>
-          </div>
-          <Outlet
-            context={
-              {
-                config: state.config,
-                onDisconnect: handleDisconnect,
-              } satisfies TRealtimeAppContext
-            }
-          />
-        </div>
-      </div>
+      <Outlet
+        context={
+          {
+            config: state.config,
+            onDisconnect: handleDisconnect,
+          } satisfies TRealtimeAppContext
+        }
+      />
     </div>
   );
 }

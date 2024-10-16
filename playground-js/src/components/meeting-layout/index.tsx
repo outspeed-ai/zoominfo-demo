@@ -1,10 +1,9 @@
 import { Track } from "@outspeed/core";
-import { Mic, MicOff, Video, VideoOff } from "lucide-react";
+import { Mic, MicOff } from "lucide-react";
 import { VideContainer } from "./video-container";
 import { MediaAction } from "./push-to-talk";
 import { ChatAction } from "./chat-action";
 import { DisconnectAction } from "./disconnect-action";
-import { Clock } from "./clock";
 import { DataChannel } from "@outspeed/core";
 import React from "react";
 import { RealtimeAudio } from "@outspeed/react";
@@ -13,7 +12,6 @@ import { Chat } from "./chat";
 
 export type TMeetingLayoutProps = {
   remoteTrack: Track | null;
-  localTrack: Track | null;
   remoteAudioTrack: Track | null;
   localAudioTrack: Track | null;
   onCallEndClick: () => void;
@@ -23,7 +21,6 @@ export type TMeetingLayoutProps = {
 
 export function MeetingLayout(props: TMeetingLayoutProps) {
   const {
-    localTrack,
     localAudioTrack,
     remoteAudioTrack,
     remoteTrack,

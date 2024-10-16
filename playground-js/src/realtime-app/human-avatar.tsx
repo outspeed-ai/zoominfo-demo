@@ -19,7 +19,6 @@ export function HumanAvatarRealtimeApp() {
     getRemoteAudioTrack,
     getLocalAudioTrack,
     getRemoteVideoTrack,
-    getLocalVideoTrack,
     dataChannel,
   } = useWebRTC({ config: { ...config, logger: ConsoleLogger.getLogger() } });
 
@@ -91,7 +90,6 @@ export function HumanAvatarRealtimeApp() {
         <MeetingLayout
           title="Human Avatar"
           onCallEndClick={handleDisconnect}
-          localTrack={getLocalVideoTrack()}
           remoteTrack={getRemoteVideoTrack()}
           localAudioTrack={getLocalAudioTrack()}
           remoteAudioTrack={getRemoteAudioTrack()}
