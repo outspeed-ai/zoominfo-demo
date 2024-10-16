@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.zoominfo-container {
+  height: 100%;
+  width: 100%;
+}
+
+.zoominfo-container iframe {
+  height: 100%;
+  width: 100%;
+  border: 0;
+}
+
+.widget-container {
+  position: fixed;
+  bottom: 0;
+  right: 30px;
+  height: 550px;
+  width: 350px;
+  border: 1px solid #444;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.widget-container iframe {
+  border: 0;
+  height: 100%;
+  width: 100%;
+}

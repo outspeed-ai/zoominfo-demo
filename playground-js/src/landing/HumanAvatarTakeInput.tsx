@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  RealtimeFunctionURLInput,
   RealtimeAudioInput,
   RealtimeVideoInput,
   RealtimeFormButton,
@@ -16,11 +15,9 @@ export function HumanAvatarTakeInput() {
   const [videoDeviceId, setVideoDeviceId] = React.useState("");
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const initialFunctionURL =
-    queryParams.get("functionURL") || "http://localhost:8080";
-  const [functionURL, setFunctionURL] = React.useState(initialFunctionURL);
+  const functionURL = queryParams.get("functionURL") || "http://localhost:8080";
+
   const [isMediaMissing, setIsMediaMissing] = React.useState(false);
-  const [isFunctionURLMissing, setIsFunctionURLMissing] = React.useState(false);
 
   function handleOnMediaInputChange(kind: "audio" | "video", value: string) {
     setIsMediaMissing(false);
@@ -42,11 +39,6 @@ export function HumanAvatarTakeInput() {
       isFormValid = false;
     }
 
-    if (!functionURL) {
-      setIsFunctionURLMissing(true);
-      isFormValid = false;
-    }
-
     if (!isFormValid) {
       return;
     }
@@ -65,18 +57,8 @@ export function HumanAvatarTakeInput() {
   }
 
   return (
-    <div className="space-y-6 max-w-lg relative z-10">
-      <div className="font-bold text-3xl mb-8">Human Avatar</div>
-      <RealtimeFunctionURLInput
-        isError={isFunctionURLMissing}
-        onChange={(e) => {
-          setIsFunctionURLMissing(false);
-          setFunctionURL(e.currentTarget.value);
-        }}
-        value={functionURL}
-        description="Once you've deployed your Human Avatar backend application, you'll receive a URL. If you are running your backend locally, use http://localhost:8080."
-        errorMsg={isFunctionURLMissing ? "Function url is required." : ""}
-      />
+    <div className="space-y-6 max-w-lg relative z-10 flex flex-col overflow-hidden">
+      <div className="font-bold text-2xl mb-8 md:text-3xl">Human Avatar</div>
       <RealtimeAudioInput
         isError={isMediaMissing}
         value={audioDeviceId}
@@ -95,7 +77,9 @@ export function HumanAvatarTakeInput() {
           isMediaMissing ? "Either audio or video input is required." : ""
         }
       />
-      <RealtimeFormButton onClick={handleFormSubmit}>Run</RealtimeFormButton>
+      <RealtimeFormButton className="!mt-auto" onClick={handleFormSubmit}>
+        Run
+      </RealtimeFormButton>
     </div>
   );
 }

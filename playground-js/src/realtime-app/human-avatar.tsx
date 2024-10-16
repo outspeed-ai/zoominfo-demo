@@ -2,7 +2,7 @@ import React from "react";
 import { useWebRTC, useRealtimeToast } from "@outspeed/react";
 import { Loader2 } from "lucide-react";
 import { Button } from "../components/button";
-import { MeetingLayout } from "../components/meeting-layout";
+import { HumanAvatarLayout } from "../components/human-avatar-layout";
 import { TRealtimeAppContext } from "./types";
 import { useOutletContext } from "react-router-dom";
 import { ConsoleLogger } from "@outspeed/core";
@@ -19,7 +19,6 @@ export function HumanAvatarRealtimeApp() {
     getRemoteAudioTrack,
     getLocalAudioTrack,
     getRemoteVideoTrack,
-    getLocalVideoTrack,
     dataChannel,
   } = useWebRTC({ config: { ...config, logger: ConsoleLogger.getLogger() } });
 
@@ -52,8 +51,10 @@ export function HumanAvatarRealtimeApp() {
 
   if (connectionStatus === "Connecting") {
     return (
-      <div className="h-full flex flex-1 justify-center items-center">
+      <div className="h-full flex flex-1 justify-center items-center flex-col">
         <Loader2 size={48} className="animate-spin" />
+        <br />
+        Connecting
       </div>
     );
   }
@@ -87,17 +88,14 @@ export function HumanAvatarRealtimeApp() {
 
   return (
     <div className="h-full flex flex-1">
-      <div className="flex-1 flex">
-        <MeetingLayout
-          title="Human Avatar"
-          onCallEndClick={handleDisconnect}
-          localTrack={getLocalVideoTrack()}
-          remoteTrack={getRemoteVideoTrack()}
-          localAudioTrack={getLocalAudioTrack()}
-          remoteAudioTrack={getRemoteAudioTrack()}
-          dataChannel={dataChannel}
-        />
-      </div>
+      <HumanAvatarLayout
+        title="Human Avatar"
+        onCallEndClick={handleDisconnect}
+        remoteTrack={getRemoteVideoTrack()}
+        localAudioTrack={getLocalAudioTrack()}
+        remoteAudioTrack={getRemoteAudioTrack()}
+        dataChannel={dataChannel}
+      />
     </div>
   );
 }
