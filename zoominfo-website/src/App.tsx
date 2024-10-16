@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  const ref = React.useRef<HTMLIFrameElement>(null);
+  const [isMinimized, setIsMinimized] = useState(true); // Start minimized
+  const ref = useRef<HTMLIFrameElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     function onMessage(event: MessageEvent) {
       if (event.data === "space" && ref.current) {
         ref.current.focus();
@@ -18,20 +19,43 @@ function App() {
       window.removeEventListener("message", onMessage);
     };
   }, []);
+
+  const toggleChatbot = () => {
+    setIsMinimized(!isMinimized);
+  };
+
   return (
     <div className="container">
+      {/* Chatbot Popup */}
       <div
-        onClick={() => console.log("You clicked!!!!!")}
-        className="zoominfo-container"
+        className={`chatbot-popup ${isMinimized ? "minimized" : ""}`}
+        onClick={toggleChatbot}
       >
-        <iframe src="/zoom.htm" />
+        {isMinimized ? (
+          <span className="chatbot-icon">💬</span> // Chat icon
+        ) : (
+          <div className="chatbot-header">
+            <>
+              <span>Chat with Sales Agent</span>
+              <button className="toggle-button">-</button>
+            </>
+          </div>
+        )}
+        {!isMinimized && (
+          <div className="chatbot-content">
+            <iframe
+              ref={ref}
+              src="http://localhost:5173"
+              allow="microphone;camera"
+              title="Chatbot"
+            />
+          </div>
+        )}
       </div>
-      <div className="widget-container">
-        <iframe
-          ref={ref}
-          src="http://localhost:5173"
-          allow="microphone;camera"
-        />
+
+      {/* Existing Zoom Container */}
+      <div className="zoominfo-container">
+        <iframe src="/zoom.htm" title="ZoomInfo" />
       </div>
     </div>
   );

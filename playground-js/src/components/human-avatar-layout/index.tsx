@@ -6,6 +6,7 @@ import { DataChannel } from "@outspeed/core";
 import React from "react";
 import { RealtimeAudio } from "@outspeed/react";
 import { AudioVisualizerContainer } from "./audio-visualzier-container";
+import { VideContainer } from "./video-container";
 
 export type THumanAvatarLayoutProps = {
   remoteTrack: Track | null;
@@ -23,6 +24,7 @@ export function HumanAvatarLayout(props: THumanAvatarLayoutProps) {
     onCallEndClick,
     dataChannel,
     title,
+    remoteTrack,
   } = props;
 
   return (
@@ -30,15 +32,26 @@ export function HumanAvatarLayout(props: THumanAvatarLayoutProps) {
       {/* Video section */}
       <div className="flex flex-1 justify-center items-center p-4">
         <div className="h-full max-h-96 w-full max-w-96">
-          <AudioVisualizerContainer
-            track={remoteAudioTrack}
-            label="Outspeed"
-            hasControls
-            threshold={120}
-          />
+          {remoteTrack && (
+            <VideContainer
+              track={remoteTrack}
+              label="Outspeed"
+              hasControls={{ audio: remoteAudioTrack }}
+            />
+          )}
+          {!remoteTrack && (
+            <>
+              <AudioVisualizerContainer
+                track={remoteAudioTrack}
+                label="Outspeed"
+                hasControls
+                threshold={120}
+              />
+              <RealtimeAudio track={remoteAudioTrack} />
+            </>
+          )}
         </div>
       </div>
-      <RealtimeAudio track={remoteAudioTrack} />
 
       {/* Call Section */}
       <div className="pb-4 flex">

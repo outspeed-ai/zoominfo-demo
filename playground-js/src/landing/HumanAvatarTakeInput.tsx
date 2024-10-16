@@ -47,7 +47,6 @@ export function HumanAvatarTakeInput() {
       const config = createConfig({
         functionURL,
         audioDeviceId,
-        videoDeviceId,
         videoCodec: "H264/90000",
       });
       onSubmit(config, HUMAN_AVATAR_APP_ROUTE);
@@ -58,9 +57,9 @@ export function HumanAvatarTakeInput() {
 
   return (
     <div className="space-y-6 max-w-lg relative z-10 flex flex-col overflow-hidden">
-      <div className="font-bold text-2xl mb-8 md:text-3xl">Human Avatar</div>
       <RealtimeAudioInput
         isError={isMediaMissing}
+        label="Please select audio input device"
         value={audioDeviceId}
         onChange={(value) => handleOnMediaInputChange("audio", value)}
         description="Select the microphone you want to use. If you don't see your microphone, make sure it is plugged in."
@@ -68,17 +67,9 @@ export function HumanAvatarTakeInput() {
           isMediaMissing ? "Either audio or video input is required." : ""
         }
       />
-      <RealtimeVideoInput
-        isError={isMediaMissing}
-        value={videoDeviceId}
-        onChange={(value) => handleOnMediaInputChange("video", value)}
-        description="Select the camera you want to use. If you don't see your camera, make sure it is plugged in."
-        errorMsg={
-          isMediaMissing ? "Either audio or video input is required." : ""
-        }
-      />
-      <RealtimeFormButton className="!mt-auto" onClick={handleFormSubmit}>
-        Run
+
+      <RealtimeFormButton className="mx-auto" onClick={handleFormSubmit}>
+        Connect
       </RealtimeFormButton>
     </div>
   );

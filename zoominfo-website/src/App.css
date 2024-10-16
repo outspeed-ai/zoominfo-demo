@@ -5,11 +5,88 @@
 }
 
 .container {
+  position: relative;
   height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+  width: 100%;
 }
 
+/* Chatbot Popup Styles */
+.chatbot-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: width 0.3s ease, height 0.3s ease;
+  z-index: 1000;
+}
+
+.chatbot-popup.minimized {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  width: 60px; /* Adjust size as needed */
+  height: 60px; /* Adjust size as needed */
+  border-radius: 50%; /* Makes it circular */
+  cursor: pointer;
+}
+
+.chatbot-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 27, 21);
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+
+  /* Increased Font Size and Bold */
+  font-size: 18px; /* Adjust the size as needed */
+  font-weight: bold;
+}
+
+.chatbot-header span {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Hide text when minimized */
+.chatbot-popup.minimized .chatbot-header span:not(.chatbot-icon) {
+  display: none;
+}
+
+.chatbot-icon {
+  font-size: 24px;
+  color: white; /* Icon color for better contrast */
+}
+
+/* Chatbot Content */
+.chatbot-content {
+  height: 400px;
+  width: 100%;
+}
+
+.chatbot-content iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Existing Zoom Container Styles */
 .zoominfo-container {
   height: 100%;
   width: 100%;
