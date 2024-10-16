@@ -48,9 +48,10 @@ export function MediaAction(props: TMediaActionProps) {
     setIsEnabled(false);
   }, [track]);
 
-  const handleKeyPress = React.useCallback(
+  const handleKeyDown = React.useCallback(
     (event: KeyboardEvent) => {
-      if (lastMicState.current.hasUpdated || !track) {
+      const lastState = lastMicState.current;
+      if (lastState.hasUpdated) {
         return;
       }
 
@@ -71,9 +72,10 @@ export function MediaAction(props: TMediaActionProps) {
 
   const handleKeyUp = React.useCallback(
     (event: KeyboardEvent) => {
-      if (!lastMicState.current.hasUpdated) return;
+      const lastState = lastMicState.current;
+      if (!lastState.hasUpdated) return;
 
-      if (event.code === "Space" && !lastMicState.current.wasEnabled) {
+      if (event.code === "Space" && !lastState.wasEnabled) {
         handleDisableMic();
       }
 
@@ -83,14 +85,14 @@ export function MediaAction(props: TMediaActionProps) {
   );
 
   React.useEffect(() => {
-    window.addEventListener("keypress", handleKeyPress);
+    window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
 
     return () => {
-      window.removeEventListener("keydown", handleKeyPress);
+      window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
     };
-  }, [handleKeyPress, handleKeyUp]);
+  }, [handleKeyDown, handleKeyUp]);
 
   React.useEffect(() => {
     if (track && !track.isMute() && !isEnabled) {
