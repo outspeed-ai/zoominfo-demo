@@ -7,8 +7,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@outspeed/core": "^1.0.1",
-    "@outspeed/react": "^1.0.1",
+    "@outspeed/core": "^1.0.2",
+    "@outspeed/react": "^1.0.2",
     "@radix-ui/react-progress": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
