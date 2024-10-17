@@ -11,7 +11,9 @@ export function HumanAvatarTakeInput() {
   const [videoDeviceId, setVideoDeviceId] = React.useState("");
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const functionURL = queryParams.get("functionURL") || "http://localhost:8080";
+  const functionURL =
+    queryParams.get("functionURL") ||
+    "https://infra.outspeed.com/run/564b75123b1b04d7b7be111bd30ec985";
 
   const [isMediaMissing, setIsMediaMissing] = React.useState(false);
 
