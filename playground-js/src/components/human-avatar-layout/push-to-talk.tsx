@@ -12,10 +12,11 @@ export type TMediaActionProps = {
     Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
   >;
   dataChannel?: DataChannel<unknown> | null;
+  remoteAudioTrack?: Track | null;
 };
 
 export function MediaAction(props: TMediaActionProps) {
-  const { track, On, Off, dataChannel } = props;
+  const { track, On, Off, dataChannel, remoteAudioTrack } = props;
   const [isEnabled, setIsEnabled] = React.useState(false);
   const lastMicState = React.useRef({
     hasUpdated: false,
@@ -24,6 +25,11 @@ export function MediaAction(props: TMediaActionProps) {
 
   const handleEnableMic = React.useCallback(() => {
     if (!track) return;
+
+    console.log("handleEnableMic", remoteAudioTrack?.isMute());
+    if (remoteAudioTrack && !remoteAudioTrack.isMute()) {
+      remoteAudioTrack.pause();
+    }
 
     if (track.isMute()) {
       track.resume();
@@ -34,11 +40,16 @@ export function MediaAction(props: TMediaActionProps) {
     }
 
     setIsEnabled(true);
-  }, [track, dataChannel]);
+  }, [track, dataChannel, remoteAudioTrack]);
 
   const handleDisableMic = React.useCallback(() => {
     if (!track) {
       return;
+    }
+
+    console.log("handleDisableMic", remoteAudioTrack?.isMute());
+    if (remoteAudioTrack && remoteAudioTrack.isMute()) {
+      remoteAudioTrack.resume();
     }
 
     if (!track.isMute()) {
@@ -46,42 +57,34 @@ export function MediaAction(props: TMediaActionProps) {
     }
 
     setIsEnabled(false);
-  }, [track]);
+  }, [track, remoteAudioTrack]);
+
+  const handlePressStart = React.useCallback(() => {
+    handleEnableMic();
+  }, [handleEnableMic]);
+
+  const handlePressEnd = React.useCallback(() => {
+    handleDisableMic();
+  }, [handleDisableMic]);
 
   const handleKeyDown = React.useCallback(
     (event: KeyboardEvent) => {
-      const lastState = lastMicState.current;
-      if (lastState.hasUpdated) {
-        return;
-      }
-
-      if (!isEnabled) {
+      if (event.code === "Space" && !lastMicState.current.hasUpdated) {
         lastMicState.current.hasUpdated = true;
-        lastMicState.current.wasEnabled = false;
-      } else {
-        lastMicState.current.hasUpdated = true;
-        lastMicState.current.wasEnabled = true;
-      }
-
-      if (event.code === "Space") {
         handleEnableMic();
       }
     },
-    [handleEnableMic, isEnabled]
+    [handleEnableMic]
   );
 
   const handleKeyUp = React.useCallback(
     (event: KeyboardEvent) => {
-      const lastState = lastMicState.current;
-      if (!lastState.hasUpdated) return;
-
-      if (event.code === "Space" && !lastState.wasEnabled) {
+      if (event.code === "Space" && lastMicState.current.hasUpdated) {
         handleDisableMic();
+        lastMicState.current.hasUpdated = false;
       }
-
-      lastMicState.current.hasUpdated = false;
     },
-    [handleDisableMic, isEnabled]
+    [handleDisableMic]
   );
 
   React.useEffect(() => {
@@ -98,14 +101,18 @@ export function MediaAction(props: TMediaActionProps) {
     if (track && !track.isMute() && !isEnabled) {
       track.pause();
     }
-  }, [track]);
+  }, [track, isEnabled]);
 
   return (
     <Button
       className={"rounded-full w-16 h-16" + (!isEnabled ? " bg-muted" : "")}
       variant="outline"
       size="icon"
-      onClick={isEnabled ? handleDisableMic : handleEnableMic}
+      onMouseDown={handlePressStart}
+      onMouseUp={handlePressEnd}
+      onMouseLeave={handlePressEnd}
+      onTouchStart={handlePressStart}
+      onTouchEnd={handlePressEnd}
     >
       {isEnabled ? <On className="h-8 w-8" /> : <Off className="h-8 w-8" />}
     </Button>

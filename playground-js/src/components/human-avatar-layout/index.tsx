@@ -62,6 +62,7 @@ export function HumanAvatarLayout(props: THumanAvatarLayoutProps) {
               On={Mic}
               Off={MicOff}
               dataChannel={dataChannel}
+              remoteAudioTrack={remoteAudioTrack}
             />
             <div className="invisible">
               <DisconnectAction onClick={onCallEndClick} />
