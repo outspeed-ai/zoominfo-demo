@@ -34,7 +34,7 @@ export function HumanAvatarLayout(props: THumanAvatarLayoutProps) {
           {remoteTrack && (
             <VideContainer
               track={remoteTrack}
-              label="Outspeed"
+              label={title}
               hasControls={{ audio: remoteAudioTrack }}
             />
           )}
@@ -42,7 +42,7 @@ export function HumanAvatarLayout(props: THumanAvatarLayoutProps) {
             <>
               <AudioVisualizerContainer
                 track={remoteAudioTrack}
-                label="Outspeed"
+                label={title}
                 hasControls
                 threshold={120}
               />
