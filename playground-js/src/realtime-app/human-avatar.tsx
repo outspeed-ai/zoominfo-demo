@@ -89,7 +89,7 @@ export function HumanAvatarRealtimeApp() {
   return (
     <div className="h-full flex flex-1">
       <HumanAvatarLayout
-        title="Human Avatar"
+        title="AI Agent"
         onCallEndClick={handleDisconnect}
         remoteTrack={getRemoteVideoTrack()}
         localAudioTrack={getLocalAudioTrack()}
