@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  const [isMinimized, setIsMinimized] = useState(true); // Start minimized
+  const [isMinimized, setIsMinimized] = useState(false); // Start minimized
   const ref = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
