@@ -45,7 +45,7 @@ function App() {
           <div className="chatbot-content">
             <iframe
               ref={ref}
-              src="chatbot-embed-7ae.pages.dev"
+              src="https://chatbot-embed-7ae.pages.dev"
               allow="microphone;camera"
               title="Chatbot"
             />
