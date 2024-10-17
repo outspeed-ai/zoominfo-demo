@@ -13,7 +13,7 @@ export function HumanAvatarTakeInput() {
   const queryParams = new URLSearchParams(location.search);
   const functionURL =
     queryParams.get("functionURL") ||
-    "https://infra.outspeed.com/run/564b75123b1b04d7b7be111bd30ec985";
+    "https://infra.outspeed.com/run/f45c0601ed465a3dff5bb11085f954d4";
 
   const [isMediaMissing, setIsMediaMissing] = React.useState(false);
 
@@ -46,6 +46,7 @@ export function HumanAvatarTakeInput() {
         functionURL,
         audioDeviceId,
         videoCodec: "H264/90000",
+        audioCodec: "PCMU/8000",
       });
       onSubmit(config, HUMAN_AVATAR_APP_ROUTE);
     } catch (error) {
