@@ -104,17 +104,24 @@ export function MediaAction(props: TMediaActionProps) {
   }, [track, isEnabled]);
 
   return (
-    <Button
-      className={"rounded-full w-16 h-16" + (!isEnabled ? " bg-muted" : "")}
-      variant="outline"
-      size="icon"
-      onMouseDown={handlePressStart}
-      onMouseUp={handlePressEnd}
-      onMouseLeave={handlePressEnd}
-      onTouchStart={handlePressStart}
-      onTouchEnd={handlePressEnd}
-    >
-      {isEnabled ? <On className="h-8 w-8" /> : <Off className="h-8 w-8" />}
-    </Button>
+    <div className="flex flex-col items-center">
+      <Button
+        className={
+          "rounded-full w-16 h-16 transition-colors duration-300 border-2 border-white hover:border-green-500"
+        }
+        variant="outline"
+        size="icon"
+        onMouseDown={handlePressStart}
+        onMouseUp={handlePressEnd}
+        onMouseLeave={handlePressEnd}
+        onTouchStart={handlePressStart}
+        onTouchEnd={handlePressEnd}
+      >
+        {isEnabled ? <On className="h-8 w-8" /> : <Off className="h-8 w-8" />}
+      </Button>
+      <span className="mt-2 text-sm text-white-700">
+        Press and Hold to talk
+      </span>
+    </div>
   );
 }
