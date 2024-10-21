@@ -46,7 +46,7 @@ export function HumanAvatarTakeInput() {
         functionURL,
         audioDeviceId,
         videoCodec: "H264/90000",
-        audioCodec: "PCMU/8000",
+        audioCodec: "opus/48000/2",
       });
       onSubmit(config, HUMAN_AVATAR_APP_ROUTE);
     } catch (error) {
