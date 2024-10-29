@@ -1,6 +1,6 @@
 import React from "react";
 import { RealtimeAudioInput, RealtimeFormButton } from "@outspeed/react";
-import { createConfig } from "@outspeed/core";
+import { createConfig } from "@outspeed/react";
 import { useOutletContext, useLocation } from "react-router-dom";
 import { TLayoutOutletContext } from "./type";
 import { HUMAN_AVATAR_APP_ROUTE } from "../constants/routes";
@@ -11,9 +11,7 @@ export function HumanAvatarTakeInput() {
   const [videoDeviceId, setVideoDeviceId] = React.useState("");
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const functionURL =
-    queryParams.get("functionURL") ||
-    "https://infra.outspeed.com/run/f45c0601ed465a3dff5bb11085f954d4";
+  const functionURL = queryParams.get("functionURL") || "http://0.0.0.0:8080";
 
   const [isMediaMissing, setIsMediaMissing] = React.useState(false);
 

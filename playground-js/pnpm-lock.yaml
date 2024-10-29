@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@outspeed/core':
-        specifier: ^1.0.2
-        version: 1.0.2
+        specifier: ^1.0.6
+        version: 1.0.6
       '@outspeed/react':
-        specifier: ^1.0.2
-        version: 1.0.2(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(xstate@5.17.4)
+        specifier: ^1.0.6
+        version: 1.0.6(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-progress':
         specifier: ^1.1.0
         version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -419,11 +419,11 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@outspeed/core@1.0.2':
-    resolution: {integrity: sha512-yQPwO1RFVRsOC/HPVKnejcxDh9A/LxNb19RPIcM90ye9DuplyuNMvTyou2nFo9moaAonRYJkcTVdqryJ1vv2Kg==}
+  '@outspeed/core@1.0.6':
+    resolution: {integrity: sha512-26p0TYKrR/KRLTkMp74XC8z5jzYahCViVERq0IjBTdkk1C/Q/SZjkU+XVODllniSvZxYcGkEDEQojcySwgSDfQ==}
 
-  '@outspeed/react@1.0.2':
-    resolution: {integrity: sha512-MKWoJ9mIEHGQ+uywoqm+pn2ZuCqm3MKNoEM2nyjzEx4HqNaBfEXkOZWQXd+Pa3c11JYvKCZ8vZS8kQ58owPWxw==}
+  '@outspeed/react@1.0.6':
+    resolution: {integrity: sha512-IuVKfRvRUaepryuu0NjSEkXGsvFoImwysnR7G6o34zhTmQL2y0vnEVGyNnd4Ib7Gzz+TV/8cNMnwESD2c+57/w==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -939,15 +939,6 @@ packages:
 
   '@webgpu/types@0.1.49':
     resolution: {integrity: sha512-NMmS8/DofhH/IFeW+876XrHVWel+J/vdcFCHLDqeJgkH9x0DeiwjVd8LcBdaxdG/T7Rf8VUAYsA8X1efMzLjRQ==}
-
-  '@xstate/react@4.1.1':
-    resolution: {integrity: sha512-pFp/Y+bnczfaZ0V8B4LOhx3d6Gd71YKAPbzerGqydC2nsYN/mp7RZu3q/w6/kvI2hwR/jeDeetM7xc3JFZH2NA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      xstate: ^5.11.0
-    peerDependenciesMeta:
-      xstate:
-        optional: true
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -1876,15 +1867,6 @@ packages:
       '@types/react':
         optional: true
 
-  use-isomorphic-layout-effect@1.1.2:
-    resolution: {integrity: sha512-49L8yCO3iGT/ZF9QttjwLF/ZD9Iwto5LnH5LmEdk/6cFmXddqi2ulF0edxTwjj+7mqvpVVGQWvbXZdn32wRSHA==}
-    peerDependencies:
-      '@types/react': '*'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-
   use-sidecar@1.1.2:
     resolution: {integrity: sha512-epTbsLuzZ7lPClpz2TyryBfztm7m+28DlEv2ZCQ3MDr5ssiwyOwGH/e5F9CkfWjJ1t4clvI58yF822/GUkjjhw==}
     engines: {node: '>=10'}
@@ -1894,11 +1876,6 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
-
-  use-sync-external-store@1.2.2:
-    resolution: {integrity: sha512-PElTlVMwpblvbNqQ82d2n6RjStvdSoNe9FG28kNfz3WiXilJm4DdNkEzRhCZuIDwY8U08WVihhGR5iRqAwfDiw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -1953,9 +1930,6 @@ packages:
   wrap-ansi@8.1.0:
     resolution: {integrity: sha512-si7QWI6zUMq56bESFvagtmzMdGOtoxfR+Sez11Mobfc7tm+VkUckk9bW2UeffTGVUbOksxmSw0AA2gs8g71NCQ==}
     engines: {node: '>=12'}
-
-  xstate@5.17.4:
-    resolution: {integrity: sha512-KM2FYVOUJ04HlOO4TY3wEXqoYPR/XsDu+ewm+IWw0vilXqND0jVfvv04tEFwp8Mkk7I/oHXM8t1Ex9xJyUS4ZA==}
 
   yallist@3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
@@ -2267,24 +2241,22 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@outspeed/core@1.0.2':
+  '@outspeed/core@1.0.6':
     dependencies:
       change-case: 5.4.4
       extendable-media-recorder: 9.2.13
       extendable-media-recorder-wav-encoder: 7.0.117
       fast-base64: 0.1.8
-      xstate: 5.17.4
 
-  '@outspeed/react@1.0.2(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(xstate@5.17.4)':
+  '@outspeed/react@1.0.6(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@outspeed/core': 1.0.2
+      '@outspeed/core': 1.0.6
       '@radix-ui/react-checkbox': 1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-icons': 1.3.0(react@18.3.1)
       '@radix-ui/react-label': 2.1.0(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-select': 2.1.2(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot': 1.1.0(@types/react@18.3.4)(react@18.3.1)
       '@radix-ui/react-toast': 1.2.2(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@xstate/react': 4.1.1(@types/react@18.3.4)(react@18.3.1)(xstate@5.17.4)
       class-variance-authority: 0.7.0
       clsx: 2.1.1
       react: 18.3.1
@@ -2293,7 +2265,6 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
-      - xstate
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -2775,16 +2746,6 @@ snapshots:
       - supports-color
 
   '@webgpu/types@0.1.49': {}
-
-  '@xstate/react@4.1.1(@types/react@18.3.4)(react@18.3.1)(xstate@5.17.4)':
-    dependencies:
-      react: 18.3.1
-      use-isomorphic-layout-effect: 1.1.2(@types/react@18.3.4)(react@18.3.1)
-      use-sync-external-store: 1.2.2(react@18.3.1)
-    optionalDependencies:
-      xstate: 5.17.4
-    transitivePeerDependencies:
-      - '@types/react'
 
   acorn-jsx@5.3.2(acorn@8.13.0):
     dependencies:
@@ -3731,12 +3692,6 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.4
 
-  use-isomorphic-layout-effect@1.1.2(@types/react@18.3.4)(react@18.3.1):
-    dependencies:
-      react: 18.3.1
-    optionalDependencies:
-      '@types/react': 18.3.4
-
   use-sidecar@1.1.2(@types/react@18.3.4)(react@18.3.1):
     dependencies:
       detect-node-es: 1.1.0
@@ -3744,10 +3699,6 @@ snapshots:
       tslib: 2.8.0
     optionalDependencies:
       '@types/react': 18.3.4
-
-  use-sync-external-store@1.2.2(react@18.3.1):
-    dependencies:
-      react: 18.3.1
 
   util-deprecate@1.0.2: {}
 
@@ -3782,8 +3733,6 @@ snapshots:
       ansi-styles: 6.2.1
       string-width: 5.1.2
       strip-ansi: 7.1.0
-
-  xstate@5.17.4: {}
 
   yallist@3.1.1: {}
 
