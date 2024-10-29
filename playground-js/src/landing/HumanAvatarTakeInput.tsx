@@ -13,7 +13,7 @@ export function HumanAvatarTakeInput() {
   const queryParams = new URLSearchParams(location.search);
   const functionURL =
     queryParams.get("functionURL") ||
-    "https://infra.outspeed.com/run/f45c0601ed465a3dff5bb11085f954d4";
+    "https://infra.outspeed.com/run/5ebbba494c7e7d18c4a1f0850eef3cbc";
 
   const [isMediaMissing, setIsMediaMissing] = React.useState(false);
 
