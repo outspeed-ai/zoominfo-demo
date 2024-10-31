@@ -47,6 +47,33 @@ export function HumanAvatarTakeInput() {
         audioDeviceId,
         videoCodec: "H264/90000",
         audioCodec: "opus/48000/2",
+        rtcConfig: {
+          iceServers: [
+            {
+              urls: "stun:stun.relay.metered.ca:80",
+            },
+            // {
+            //   urls: "turn:global.relay.metered.ca:80",
+            //   username: "64f70edcae15a21f820c0562",
+            //   credential: "AP5BQutDetN8Cyso",
+            // },
+            {
+              urls: "turn:global.relay.metered.ca:80?transport=tcp",
+              username: "64f70edcae15a21f820c0562",
+              credential: "AP5BQutDetN8Cyso",
+            },
+            // {
+            //   urls: "turn:global.relay.metered.ca:443",
+            //   username: "64f70edcae15a21f820c0562",
+            //   credential: "AP5BQutDetN8Cyso",
+            // },
+            {
+              urls: "turns:global.relay.metered.ca:443?transport=tcp",
+              username: "64f70edcae15a21f820c0562",
+              credential: "AP5BQutDetN8Cyso",
+            },
+          ],
+        },
       });
       onSubmit(config, HUMAN_AVATAR_APP_ROUTE);
     } catch (error) {
